@@ -2,7 +2,7 @@ import './App.css'
 
 export const List = (props) => {
   return (
-    <div>
+    <div className='list-wrapper'>
       <li>
         first
       </li>

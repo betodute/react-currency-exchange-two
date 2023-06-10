@@ -2,6 +2,6 @@ import './App.css'
 
 export const Headline = (props) => {
   return (
-    <div> Currency Exchange </div>
+    <h3 className='headline'> Currency Exchange Rates </h3>
     )
 }

@@ -1,3 +1,65 @@
 div {
   margin: 1em;
 }
+
+.headline {
+  font-family: 'Archivo', sans-serif;
+}
+
+.base-wrapper {
+  padding: .5em;
+}
+
+.base-headline {
+  font-family: 'Archivo', sans-serif;
+  font-size: large;
+}
+
+.list-wrapper {
+  list-style-type: none;
+}
+
+.list-wrapper > li {
+  padding: .5em;
+  width: 20em;
+  border-bottom: dashed green;
+}
+
+.news-wrapper {
+  padding: 1em;
+}
+
+.news-title {
+  font-family: 'Archivo', sans-serif;
+  margin-top: .5em;
+}
+
+.single-headline {
+  padding: .5em;
+  border-bottom: dashed green;
+  list-style-type: none;
+}
+
+.link-headline {
+  text-decoration: none;
+}
+
+.single-snippet {
+  padding: .5em;
+}
+
+.footer-wrapper {
+  padding-top: 1em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-wrapper > div {
+  text-align: center;
+}
+
+.footer-wrapper > div > a {
+  padding: .5em;
+}
+
