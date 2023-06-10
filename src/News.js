@@ -22,7 +22,7 @@ export const News = (props) => {
 
   return (
     <div className='news-wrapper rounded bg-warning-subtle bg-opacity-50'>
-      <h3 className='news-title'>latest financial from nyt</h3>
+      <h3 className='news-title'>latest financial from the nyts</h3>
       <ul>
         {headlines.response && headlines.response.docs && headlines.response.docs.map((doc, index) => (
           <li key={index} className='single-headline'> 
