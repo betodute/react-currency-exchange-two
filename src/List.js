@@ -1,14 +1,22 @@
-import './App.css'
+import React, { useEffect } from 'react';
+import './App.css';
 
 export const List = (props) => {
+  const { list, baseCurrency } = props;
+
+  const filteredList = Object.entries(list).filter(([currency]) => currency !== baseCurrency);
+
   return (
     <div className='list-wrapper'>
-      <li>
-        first
-      </li>
-      <li>
-        second
-      </li>
+      <ul>
+        {filteredList.map(([currency, value]) => (
+          <li key={currency}>
+            {currency}: {value}
+          </li>
+        ))}
+      </ul>
     </div>
-    )
-}
+  );
+};
+
+

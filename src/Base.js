@@ -1,12 +1,47 @@
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
 export const Base = (props) => {
-  // fetch currency and add to state via hooks
-  // then render state in return div
-  // default u.s. dollar 
+  const [selectedCurrency, setSelectedCurrency] = useState(props.baseCurrency);
+
+  const handleCurrencyChange = (event) => {
+    const selectedCurrency = event.target.value;
+    setSelectedCurrency(selectedCurrency);
+    props.setBaseCurrency(selectedCurrency);
+  };
+
+  const renderOptions = () => {
+    const currencies = Object.keys(props.list);
+    const baseCurrencyIndex = currencies.indexOf(selectedCurrency);
+
+    if (baseCurrencyIndex > 0) {
+      const baseCurrency = currencies[baseCurrencyIndex];
+      const otherCurrencies = currencies.filter((currency) => currency !== baseCurrency);
+      return [baseCurrency, ...otherCurrencies].map((currency) => (
+        <option key={currency} value={currency}>
+          {'1 ' + currency}
+        </option>
+      ));
+    }
+
+    return currencies.map((currency) => (
+      <option key={currency} value={currency}>
+        {'1 ' + currency}
+      </option>
+    ));
+  };
+
   return (
     <div className='base-wrapper bg-success-subtle rounded-pill'>
-      <div className='base-headline'> Base Currency: <strong> 1 USD </strong> </div>
+      <div className='base-headline'>
+        Base Currency: <strong>{selectedCurrency ? "1 " + selectedCurrency : "1 USD"}</strong>
+      </div>
+      <div className='currency-dropdown'>
+        <select onChange={handleCurrencyChange} value={selectedCurrency}>
+          {renderOptions()}
+        </select>
+      </div>
     </div>
-    )
-}
+  );
+};
+
