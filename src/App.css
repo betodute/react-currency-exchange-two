@@ -57,6 +57,10 @@
   list-style-type: none;
 }
 
+.single-headline:last-child {
+  border-bottom: none;
+}
+
 .link-headline {
   text-decoration: none;
 }
