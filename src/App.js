@@ -2,6 +2,7 @@ import './App.css';
 import { React, useState, useEffect } from 'react';
 import { Headline } from './Headline.js'
 import { Base } from './Base.js'
+import { Pair } from './Pair.js'
 import { List } from './List.js'
 import { News } from './News.js'
 import { Footer } from './Footer.js'
@@ -18,7 +19,7 @@ function App() {
       const data = await response.json();
       const rates = data.rates;
       if (!rates.hasOwnProperty(baseCurrency)) {
-        rates[baseCurrency] = 1; // Assuming the rate for the base currency is 1
+        rates[baseCurrency] = 1;
       }
       setRates(rates);
       setBaseCurrency(data.base)
@@ -34,7 +35,16 @@ function App() {
   return (
     <div>
       <Headline />
-      <Base list={rates} setBaseCurrency={setBaseCurrency} baseCurrency={baseCurrency} />
+      <div className='container'>
+        <div className='row'>
+          <div className='col-md-6 order-md-2'>
+            <Pair />
+          </div>
+          <div className='col-md-6 order-md-1'>
+            <Base list={rates} setBaseCurrency={setBaseCurrency} baseCurrency={baseCurrency} />
+          </div>
+        </div>
+      </div>
       <div className='container'>
         <div className='row'>
           <div className='col-md-6'>

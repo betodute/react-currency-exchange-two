@@ -14,6 +14,9 @@ export const Base = (props) => {
     const currencies = Object.keys(props.list);
     const baseCurrencyIndex = currencies.indexOf(selectedCurrency);
 
+    // This entire if condition is merely dealing with the order in which the options are rendered
+    // So that the currency selected is not on the bottom of the list
+
     if (baseCurrencyIndex > 0) {
       const baseCurrency = currencies[baseCurrencyIndex];
       const otherCurrencies = currencies.filter((currency) => currency !== baseCurrency);

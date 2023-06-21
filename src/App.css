@@ -21,6 +21,33 @@
   padding-left: 3.5em;
 }
 
+.pair-wrapper {
+  margin: 1em;
+  padding: .5em;
+}
+
+.pair-wrapper > div {
+  width: fit-content;
+  padding-left: 2em;
+}
+
+.pair-headline {
+  margin-left: 1.5em;
+  padding: 1em .5em .5em .5em;
+  font-family: 'Archivo', sans-serif;
+  font-size: large;
+}
+
+.pair-form {
+  margin: 0em 2em 2em 2em;
+}
+
+.custom-input {
+  margin-left: -1em;
+  width: 10ch;
+  margin-bottom: .4em;
+}
+
 .currency-dropdown {
   margin-left: 1em;
   padding-bottom: 1em;
