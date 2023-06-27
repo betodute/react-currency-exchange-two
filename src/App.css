@@ -5,41 +5,54 @@
   font-family: 'Archivo', sans-serif;
 }
 
-.base-headline {
+.base-wrapper {
   margin: .5em;
+  padding: .5em;
+}
+
+.base-headline {
+  margin: .7em;
   padding: .5em;
   font-family: 'Archivo', sans-serif;
   font-size: large;
 }
 
-.base-wrapper {
-  margin: 2em;
-  padding: .5em;
-}
-
 .base-wrapper > div {
-  padding-left: 3.5em;
+  padding-left: 2.5em;
 }
 
 .pair-wrapper {
-  margin: 1em;
+  margin: .7em;
   padding: .5em;
 }
 
 .pair-wrapper > div {
-  width: fit-content;
-  padding-left: 2em;
+  padding-left: 2.5em;
 }
 
 .pair-headline {
-  margin-left: 1.5em;
-  padding: 1em .5em .5em .5em;
+  margin-left: .5em;
+  padding: .5em;
   font-family: 'Archivo', sans-serif;
   font-size: large;
 }
 
 .pair-form {
-  margin: 0em 2em 2em 2em;
+  margin-left: 3em;
+  padding: .5em;
+}
+
+.pair-form > label {
+  margin-right: 1em;
+}
+
+.swap-button {
+  margin: 1em 0em 1em 4em;
+  padding: .2em;
+}
+
+.quantity-input {
+  width: 90px;
 }
 
 .custom-input {

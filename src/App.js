@@ -37,10 +37,10 @@ function App() {
       <Headline />
       <div className='container'>
         <div className='row'>
-          <div className='col-md-6 order-md-2'>
+          <div className='col-lg-6 order-lg-2'>
             <Pair />
           </div>
-          <div className='col-md-6 order-md-1'>
+          <div className='col-lg-6 order-lg-1'>
             <Base list={rates} setBaseCurrency={setBaseCurrency} baseCurrency={baseCurrency} />
           </div>
         </div>
