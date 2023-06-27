@@ -52,12 +52,13 @@
 }
 
 .chart-headline {
-  margin-left: 2.5em;
+  font-family: 'Archivo', sans-serif;
+  font-size: large;
 }
 
 .swap-button {
-  margin: 1em 0em 1em 4em;
-  padding: .2em;
+  margin: 1em 0em 1em 3.2em;
+  padding: .5em;
 }
 
 .quantity-input {
@@ -91,6 +92,7 @@
 }
 
 .news-wrapper {
+  margin: .5em;
   padding: .5em;
 }
 

@@ -3,7 +3,7 @@ import { React, useState, useEffect } from 'react';
 import { Headline } from './Headline.js'
 import { Base } from './Base.js'
 import { Pair } from './Pair.js'
-import { Chart } from './Chart.js'
+import { Graph } from './Graph.js'
 import { List } from './List.js'
 import { News } from './News.js'
 import { Footer } from './Footer.js'
@@ -42,7 +42,7 @@ function App() {
             <Pair />
           </div>
           <div className='col-12'>
-            <Chart />
+            <Graph />
           </div>
           <div className='col-12'>
             <Base list={rates} setBaseCurrency={setBaseCurrency} baseCurrency={baseCurrency} />
