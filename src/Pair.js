@@ -62,7 +62,7 @@ export const Pair = (props) => {
   }, [currencyList, fromCurrency, toCurrency, fromQuantity]);
 
   return (
-    <div className='pair-wrapper bg-success-subtle rounded-pill'>
+    <div className='pair-wrapper bg-success-subtle rounded'>
       <div className='pair-headline'>
         <strong>{fromQuantity}</strong> {fromCurrency}(s) is <strong>{toQuantity}</strong> {toCurrency}(s)
       </div>

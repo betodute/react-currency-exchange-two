@@ -22,7 +22,7 @@
 }
 
 .pair-wrapper {
-  margin: .7em;
+  margin: .5em;
   padding: .5em;
 }
 
@@ -44,6 +44,15 @@
 
 .pair-form > label {
   margin-right: 1em;
+}
+
+.chart-wrapper {
+  margin: .5em;
+  padding: .5em;
+}
+
+.chart-headline {
+  margin-left: 2.5em;
 }
 
 .swap-button {

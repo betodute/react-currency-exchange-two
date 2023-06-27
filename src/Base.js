@@ -35,7 +35,7 @@ export const Base = (props) => {
   };
 
   return (
-    <div className='base-wrapper bg-success-subtle rounded-pill'>
+    <div className='base-wrapper bg-success-subtle rounded'>
       <div className='base-headline'>
         Base Currency: <strong>{selectedCurrency ? "1 " + selectedCurrency : "1 USD"}</strong>
       </div>
