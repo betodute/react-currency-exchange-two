@@ -1,16 +1,16 @@
 import './App.css';
 
 export const List = (props) => {
-  const { list, baseCurrency } = props;
+  const { currencyList, ratesList, baseCurrency } = props;
 
-  const filteredList = Object.entries(list).filter(([currency]) => currency !== baseCurrency);
+  const filteredList = Object.entries(ratesList).filter(([currency]) => currency !== baseCurrency);
 
   return (
     <div className='list-wrapper'>
       <ul>
         {filteredList.map(([currency, value]) => (
           <li key={currency}>
-            {currency}: {value}
+            {currency}: {value} - {currencyList[currency]}
           </li>
         ))}
       </ul>

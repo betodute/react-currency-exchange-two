@@ -14,11 +14,13 @@ export const Pair = (props) => {
   }
 
   const handleFromChange = (event) => {
-    setFromCurrency(event.target.value);
+    const selectedCurrency = event.target.value;
+    setFromCurrency(selectedCurrency);
   }
-
+ 
   const handleToChange = (event) => {
-    setToCurrency(event.target.value);
+    const selectedCurrency = event.target.value;
+    setToCurrency(selectedCurrency);
   }
 
   const swapCurrencies = () => {
@@ -28,38 +30,26 @@ export const Pair = (props) => {
   }
 
   const fetchToQuantity = async () => {
-    const fromKey = Object.keys(currencyList).find(key => currencyList[key] === fromCurrency);
-    const toKey = Object.keys(currencyList).find(key => currencyList[key] === toCurrency);
+    const fromKey = Object.keys(currencyList).find(key => currencyList[key] === fromCurrency) || 'USD';
+    const toKey = Object.keys(currencyList).find(key => currencyList[key] === toCurrency) || 'MXN';
     try {
-      console.log(fromKey, toKey)
       const host = 'api.frankfurter.app';
       const response = await fetch(`https://${host}/latest?amount=${fromQuantity}&from=${fromKey}&to=${toKey}`);
       const data = await response.json();
-      console.log(data.rates[toKey])
+      props.dataForChart([fromKey, toKey])
       setToQuantity(data.rates[toKey]);
     } catch(error) {
       console.error("error:", error);
     }
   }
 
-  const fetchCurrencyList = async () => {
-    try {
-      const host = 'api.frankfurter.app';
-      const response = await fetch(`https://${host}/currencies`);
-      const data = await response.json();
-      setCurrencyList(data);
-    } catch(error) {
-      console.error("error:", error);
-    }
-  }
-
-  useEffect(() => {
-    fetchCurrencyList();
-  }, []);
-
   useEffect(() => {
     fetchToQuantity();
   }, [currencyList, fromCurrency, toCurrency, fromQuantity]);
+
+  useEffect(() => {
+    setCurrencyList(props.currencyList);
+  }, [props.currencyList]);
 
   return (
     <div className='pair-wrapper bg-success-subtle rounded'>
@@ -73,6 +63,8 @@ export const Pair = (props) => {
         <label htmlFor='from-pair'>Convert From</label>
         <select name='from-pair' onChange={handleFromChange} value={fromCurrency}>
           {Object.values(currencyList).map(currency => (
+            // *** NOTE *** Much Easier to Exclude Upon Rendering Than Updating a Whole New List on State
+            currency !== toCurrency &&
             <option key={currency} value={currency}>
               {currency}
             </option>
@@ -82,6 +74,8 @@ export const Pair = (props) => {
         <label htmlFor='to-pair'>Convert To</label>
         <select name='to-pair' onChange={handleToChange} value={toCurrency}>
           {Object.values(currencyList).map(currency => (
+            // *** NOTE *** Much Easier to Exclude Upon Rendering Than Updating a Whole New List on State
+            currency !== fromCurrency &&
             <option key={currency} value={currency}>
               {currency}
             </option>

@@ -17,6 +17,10 @@
   font-size: large;
 }
 
+.base-currency-name {
+  margin-left: 1em;
+}
+
 .base-wrapper > div {
   padding-left: 2.5em;
 }
@@ -44,6 +48,10 @@
 
 .pair-form > label {
   margin-right: 1em;
+}
+
+.pair-form > select {
+  padding: .3em;
 }
 
 .chart-wrapper {

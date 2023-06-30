@@ -1,20 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 
 export const Base = (props) => {
+
+  const [currencyList, setCurrencyList] = useState([]);
+  const [ratesList, setRatesList] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState(props.baseCurrency);
+  const [currencyName, setCurrencyName] = useState('United States Dollar')
 
   const handleCurrencyChange = (event) => {
     const selectedCurrency = event.target.value;
     setSelectedCurrency(selectedCurrency);
     props.setBaseCurrency(selectedCurrency);
+    const selectedCurrencyName = currencyList[selectedCurrency];
+    setCurrencyName(selectedCurrencyName);
   };
 
+  useEffect(() => {
+    setCurrencyList(props.currencyList)
+  }, [])
+
+  useEffect(() => { 
+    setRatesList(props.ratesList)
+  }, [])
+
+  useEffect(() => {
+    const selectedCurrencyName = currencyList[selectedCurrency];
+    setCurrencyName(selectedCurrencyName);
+  }, [currencyList, selectedCurrency]);
+
   const renderOptions = () => {
-    const currencies = Object.keys(props.list);
+    const currencies = Object.keys(props.ratesList);
     const baseCurrencyIndex = currencies.indexOf(selectedCurrency);
 
-    // This entire if condition is merely dealing with the order in which the options are rendered
+    // This entire if condition is organizing the order in which the options are rendered
     // So that the currency selected is not on the bottom of the list
 
     if (baseCurrencyIndex > 0) {
@@ -43,6 +62,7 @@ export const Base = (props) => {
         <select onChange={handleCurrencyChange} value={selectedCurrency}>
           {renderOptions()}
         </select>
+        <span className='base-currency-name'> <strong> { currencyName } </strong> </span>
       </div>
     </div>
   );
