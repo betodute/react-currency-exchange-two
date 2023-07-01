@@ -6,7 +6,7 @@ export const Base = (props) => {
   const [currencyList, setCurrencyList] = useState([]);
   const [ratesList, setRatesList] = useState([]);
   const [selectedCurrency, setSelectedCurrency] = useState(props.baseCurrency);
-  const [currencyName, setCurrencyName] = useState('United States Dollar')
+  const [currencyName, setCurrencyName] = useState('')
 
   const handleCurrencyChange = (event) => {
     const selectedCurrency = event.target.value;
@@ -26,8 +26,8 @@ export const Base = (props) => {
 
   useEffect(() => {
     const selectedCurrencyName = currencyList[selectedCurrency];
-    setCurrencyName(selectedCurrencyName);
-  }, [currencyList, selectedCurrency]);
+    setCurrencyName(selectedCurrencyName || "United States Dollar");
+  }, [currencyList, selectedCurrency, currencyName]);
 
   const renderOptions = () => {
     const currencies = Object.keys(props.ratesList);
@@ -62,7 +62,7 @@ export const Base = (props) => {
         <select onChange={handleCurrencyChange} value={selectedCurrency}>
           {renderOptions()}
         </select>
-        <span className='base-currency-name'> <strong> { currencyName } </strong> </span>
+        <span className='base-currency-name'> <strong> {currencyName} </strong> </span>
       </div>
     </div>
   );
