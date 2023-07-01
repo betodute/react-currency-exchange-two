@@ -12,22 +12,20 @@ export const Base = (props) => {
     const selectedCurrency = event.target.value;
     setSelectedCurrency(selectedCurrency);
     props.setBaseCurrency(selectedCurrency);
-    const selectedCurrencyName = currencyList[selectedCurrency];
-    setCurrencyName(selectedCurrencyName);
   };
 
   useEffect(() => {
     setCurrencyList(props.currencyList)
-  }, [])
+  }, [props.currencyList])
 
   useEffect(() => { 
     setRatesList(props.ratesList)
-  }, [])
+  }, [props.ratesList])
 
   useEffect(() => {
     const selectedCurrencyName = currencyList[selectedCurrency];
-    setCurrencyName(selectedCurrencyName || "United States Dollar");
-  }, [currencyList, selectedCurrency, currencyName]);
+    setCurrencyName(selectedCurrencyName || '');
+  }, [currencyList, selectedCurrency]);
 
   const renderOptions = () => {
     const currencies = Object.keys(props.ratesList);
