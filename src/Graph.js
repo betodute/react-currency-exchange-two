@@ -39,8 +39,8 @@ export const Graph = (props) => {
 
       const minRate = Math.min(...rates);
       const maxRate = Math.max(...rates);
-      const minRange = Math.floor(minRate) - 5;
-      const maxRange = Math.ceil(maxRate) + 5;
+      const minRange = Math.floor(minRate)
+      const maxRange = Math.ceil(maxRate)
       
       setChartData({
         labels: dates,
